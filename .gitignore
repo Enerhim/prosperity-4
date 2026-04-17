@@ -1,2 +1,6 @@
 venv
 code/__pycache__
+backtests
+code/round0/__pycache__
+code/round1/__pycache__
+code/round2/__pycache__

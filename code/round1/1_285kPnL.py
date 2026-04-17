@@ -175,7 +175,7 @@ class Trader:
                 # aggressive take
                 if od.sell_orders:
                     for ask in sorted(od.sell_orders):
-                        if ask >= fair - 4:
+                        if ask >= fair - 8:
                             break
                         vol = min(-od.sell_orders[ask], limit - pos)
                         if vol > 0:
@@ -184,7 +184,7 @@ class Trader:
 
                 if od.buy_orders:
                     for bid in sorted(od.buy_orders, reverse=True):
-                        if bid <= fair + 4:
+                        if bid <= fair + 8:
                             break
                         vol = min(od.buy_orders[bid], limit + pos)
                         if vol > 0:
