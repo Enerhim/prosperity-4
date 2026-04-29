@@ -182,7 +182,7 @@ class Trader:
         return result, 0, jsonpickle.encode(td)
 
     def _trade_pepper(self, state):
-        """Buy max position ASAP. IPR price rises +1/tick = +1000/day."""
+        """Buy max position ASAP. IPR price rises +1/tick = +10000/day."""
         od = state.order_depths.get(self.IPR)
         if not od:
             return []
@@ -200,7 +200,6 @@ class Trader:
             if remaining <= 0:
                 break
 
-        # Post aggressive bid (best_bid+1) to fill remaining fast
         if remaining > 0 and od.buy_orders:
             orders.append(Order(self.IPR, max(od.buy_orders) + 1, remaining))
 
